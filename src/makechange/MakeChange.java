@@ -3,8 +3,11 @@ package makechange;
 import java.util.Scanner;
 
 public class MakeChange {
+	
+	static Scanner input = new Scanner(System.in);
+	
+	
 	public static void main(String[] args) {
-//		Scanner input = new Scanner(System.in);
 //		Hint: Mod operator
 //		shoppingAllDay();
 		double itemCost = shoppingAllDay();
@@ -16,32 +19,32 @@ public class MakeChange {
 //		The user is prompted asking for the price of the item.
 		private static double shoppingAllDay() {
 			System.out.println("Please enter the cost of your item: ");
-			Scanner getItemCost = new Scanner(System.in);
-			double itemCost = getItemCost.nextDouble();
+//			Scanner getItemCost = new Scanner(System.in); //Scanner closing inside of method, causing error. Put Scanner into Class.
+			double itemCost = input.nextDouble();
 			System.out.println("Cash machine only. No Debit. Please enter $" + itemCost);
-			
-			getItemCost.close();
+//			getItemCost.close();
 			return itemCost;
 			
 		}
 		
 //		User Story #2
 //		The user is then prompted asking how much money was tendered by the customer.
+//		User Story #3
+//		Display an appropriate message if the customer provided too little money or the exact amount.
 		private static double costsTooMuch(double itemCost) {
-			//pass by values sucks and doesn't work
 			System.out.println("Change first, then bills. Please enter how much money was inserted: ");
-			Scanner getAmountTendered = new Scanner(System.in);
-			double amountTendered = getAmountTendered.nextDouble();
+//			Scanner getAmountTendered = new Scanner(System.in); //Same issue as in shoppingAllDay() 
+			double amountTendered = input.nextDouble();
 			double amountOwed = amountTendered - itemCost;
-			System.out.println("Thank you! Your change will be: $" + amountOwed);
+//			System.out.println(amountOwed + " : " + amountTendered + " : " + itemCost);
+			System.out.printf("Thank you! Your change will be: $ %.2f", amountOwed);
 			if (amountOwed > amountTendered) {
 				System.out.println("You're not quite there, put in more money.");
 			}
 			if (amountOwed == amountTendered) {
 				System.out.println("Thank you for put the exact amount!");
-					
 			}
-			getAmountTendered.close();
+//			getAmountTendered.close();
 			return amountOwed;
 			
 			
@@ -49,8 +52,6 @@ public class MakeChange {
 			
 		}
 		
-//		User Story #3
-//		Display an appropriate message if the customer provided too little money or the exact amount.
 //
 //		User Story #4
 //		If the amount tendered is more than the cost of the item, 
