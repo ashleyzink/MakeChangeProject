@@ -57,16 +57,52 @@ public class MakeChange {
 				}
 				else {
 					System.out.printf("Thank you! Your change will be: $ %.2f\n", amountOwed);
-					tens = (int) amountOwed / 10;
+					tens = (int) (amountOwed / 10);
 					if (tens == 1) {
 						System.out.print(tens + " ten dollar bill, ");
 					} 
 					amountOwed %= 10; 
-					fives = (int) amountOwed / 5;
+					fives = (int) (amountOwed / 5);
 					if (fives == 1) {
 						System.out.print(fives + " five dollar bill, ");
 					}
-					
+					amountOwed %= 5;
+					ones = (int) amountOwed;
+					if (ones == 1) {
+						System.out.print(ones + " one dollar bill, ");
+					} else if (ones > 1) {
+						System.out.print(ones + " one dollar bills, ");
+					}
+					amountOwed %= 1;
+					amountOwed *= 100 + .05;  //Converted from dollars to cents. 
+					quarters = (int) (amountOwed / 25);
+					if (quarters == 1) {
+						System.out.print(quarters + " quarter, ");
+					} else if (quarters > 1) {
+						System.out.print(quarters + " quarters, ");
+					}
+					amountOwed %= 25;
+					dimes = (int) (amountOwed / 10);
+					if (dimes == 1) {
+						System.out.print(dimes + " dime, ");
+					} else if (dimes > 1) {
+						System.out.print(dimes + " dimes, ");
+					}
+					amountOwed %= 10;
+					nickles = (int) (amountOwed / 5);
+					if (nickles == 1) {
+						System.out.print(nickles + " nickle, ");
+					} else if (nickles > 1) {
+						System.out.print(nickles + " nickles, ");
+					}
+					amountOwed %= 5; 
+					pennies = (int) (amountOwed);
+					if (pennies == 1) {
+						System.out.print(pennies + " penny, ");
+					} else if (pennies > 1) {
+						System.out.print(pennies + " pennies, ");
+					}
+					System.out.println("Thank you. Have a great day!");
 				}
 				
 			}
