@@ -32,7 +32,7 @@ public class MakeChange {
 //		User Story #2
 //		The user is then prompted asking how much money was tendered by the customer.
 		private static double costsTooMuch(double itemCost) {
-			System.out.println("Change first, then bills. Please enter how much money was inserted: ");
+			System.out.println("Please enter how much money was inserted: ");
 //			Scanner getAmountTendered = new Scanner(System.in); //Same issue as in shoppingAllDay() 
 			double amountTendered = input.nextDouble();
 			double amountOwed = amountTendered - itemCost;
