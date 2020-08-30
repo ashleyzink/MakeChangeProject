@@ -15,6 +15,7 @@ public class MakeChange {
 		double amountOwedMain = costsTooMuch(itemCostMain);
 		makeChange(amountOwedMain);
 		
+		input.close();
 	}
 
 //		User Story #1
@@ -23,7 +24,7 @@ public class MakeChange {
 			System.out.println("Please enter the cost of your item: ");
 //			Scanner getItemCost = new Scanner(System.in); //Scanner closing inside of method, causing error. Put Scanner into Class.
 			double itemCost = input.nextDouble();
-			System.out.println("Cash machine only. No Debit. Please enter $" + itemCost);
+			System.out.println("Cash machine only. No Debit. You owe: $" + itemCost);
 //			getItemCost.close();
 			return itemCost; //1.33454
 			
@@ -106,10 +107,5 @@ public class MakeChange {
 				}
 				
 			}
-
-			
-		
-		
-
 
 }
