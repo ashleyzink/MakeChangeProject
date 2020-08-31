@@ -49,7 +49,7 @@ public class MakeChange {
 //		If the amount tendered is more than the cost of the item, 
 //		display the number of bills and coins that should be given to the customer.
 			private static void makeChange(double amountOwed) {
-				int tens, fives, ones, quarters, dimes, nickles, pennies;
+				int twenties, tens, fives, ones, quarters, dimes, nickles, pennies;
 				if (amountOwed < 0) {
 					System.out.println("You're not quite there, please deposit more money.");
 				}
@@ -58,6 +58,12 @@ public class MakeChange {
 				}
 				else {
 					System.out.printf("Thank you! Your change will be: $ %.2f\n", amountOwed);
+					twenties = (int) (amountOwed / 20);
+					if (twenties == 1) {
+						System.out.print(twenties + " twenty dollar bill, ");
+					} else if (twenties > 1) {
+						System.out.println(twenties + " twenty dollar bills, ");
+					}
 					tens = (int) (amountOwed / 10);
 					if (tens == 1) {
 						System.out.print(tens + " ten dollar bill, ");
@@ -76,6 +82,7 @@ public class MakeChange {
 					}
 					amountOwed %= 1;
 					amountOwed *= 100 + .05;  //Converted from dollars to cents. 
+					System.out.println(amountOwed);
 					quarters = (int) (amountOwed / 25);
 					if (quarters == 1) {
 						System.out.print(quarters + " quarter, ");
