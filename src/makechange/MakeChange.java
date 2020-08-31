@@ -82,7 +82,6 @@ public class MakeChange {
 					}
 					amountOwed %= 1;
 					amountOwed *= 100 + .05;  //Converted from dollars to cents. 
-					System.out.println(amountOwed);
 					quarters = (int) (amountOwed / 25);
 					if (quarters == 1) {
 						System.out.print(quarters + " quarter, ");
